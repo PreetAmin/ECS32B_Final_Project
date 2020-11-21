@@ -5,37 +5,53 @@ class Package:
         self.ownerName = ""
         self.delivered = False
         self.pickedUp = False
-
-
-
+        
 class Truck:
     def __init__(self, id, n):
         self.id = id
         self.size = n
         self.location = ""
-        # self.packages = ?
+        self.packages = {}
 
     def addPackage(self, pk):
+        #Add package to packages dictionary
+        self.packages[pk.id] = pk
+        
+        #Set package pickedUp to true 
+        pk.pickedUp = True 
+       
+        
+    def deliverPackage(self, pk):#Milap
+        #Find delivery location
+        #drive to required location
+        #remove the package from truck
+        #set delivery status to true for package  
 
+    def deliverPackageByAddress(self, addr):#Dave
+        #drive to address 
+        #find all the packages we need to deliver and their names to some DS 
+        #loop through all needed packages 
+            #remove package from truck
+            #set package status to delivered 
 
+            
+            
+    def removePackage(self, pk, office):#Preet
+        #drive to post office 
+        #remove package from truck (don't set delivery status to true)
+        #set picked up back to false 
 
-    def deliverPackage(self, pk):
-
-
-
-    def deliverPackageByAddress(self, addr):
+    def driveTo(self, loc1, loc2):#Preet 
+        #set truck's location to location 2 
+        
         
 
-
-    def removePackage(self, pk):
-
-
-
-    def driveTo(self, loc1, loc2):
-
-
-
-    def getPackagesIds(self):
+    def getPackagesIds(self):#Preet 
+        #intialize empty python list
+        #for package on truck:
+            #get ID 
+            #add ID to list 
+            
 
 
 
