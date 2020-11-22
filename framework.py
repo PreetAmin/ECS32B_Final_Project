@@ -38,7 +38,7 @@ class Truck:
                 # set package status to delivered
                 self.packages[key].deliver = True
                 # remove package from truck
-                #del self.packages[key]
+                del self.packages[key]
 
 
 
