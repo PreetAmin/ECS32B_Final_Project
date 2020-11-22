@@ -15,7 +15,7 @@ class Truck:
         self.location = loc
         self.packages = {}
 
-    def addPackage(self, pk):
+    def collectPackage(self, pk):
         #Add package to packages dictionary
         self.packages[pk.id] = pk
         
