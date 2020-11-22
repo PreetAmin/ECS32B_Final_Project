@@ -9,7 +9,7 @@ class Package:
        
         
 class Truck:
-    def __init__(self, id, n):
+    def __init__(self, id, n, loc):
         self.id = id
         self.size = n
         self.location = loc
