@@ -3,8 +3,8 @@ class Package:
         self.id = id
         self.address = ""
         self.ownerName = ""
+        self.collected = False
         self.delivered = False
-        self.pickedUp = False
         
 class Truck:
     def __init__(self, id, n):
@@ -18,7 +18,7 @@ class Truck:
         self.packages[pk.id] = pk
         
         #Set package pickedUp to true 
-        pk.pickedUp = True 
+        pk.collected = True
        
         
     def deliverPackage(self, pk): #Milap
@@ -35,12 +35,17 @@ class Truck:
         #set delivery status to true for package
         pk.delivered = True  
 
-    def deliverPackageByAddress(self, addr):#Dave
-        #drive to address 
-        #find all the packages we need to deliver and their names to some DS 
-        #loop through all needed packages 
-            #remove package from truck
-            #set package status to delivered 
+        def deliverPackageByAddress(self, addr):  # Dave
+         # drive to address
+            self.driveTo(self.location,addr)
+        # find all the packages we need to deliver
+         # loop through all needed packages
+            for key in self.packages:
+                if self.packages[key].address == addr:
+                    # set package status to delivered
+                    self.packages[key].deliver = True
+                # remove package from truck
+                    del self.packages[key]
 
             
     def removePackage(self, pk, office):#Preet
