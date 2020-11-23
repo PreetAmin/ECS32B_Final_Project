@@ -31,7 +31,7 @@ class Truck:
         self.driveto(loc1, loc2)
 
         #remove the package from truck
-        del pk
+        del self.package[pk]
 
         #set delivery status to true for package
         pk.delivered = True  
