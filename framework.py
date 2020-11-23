@@ -28,7 +28,7 @@ class Truck:
         self.driveto(self.location, pk.address)
 
         #remove the package from truck
-        del self.packages[pk]
+        del self.packages[pk.id]
 
         #set delivery status to true for package
         pk.delivered = True  
@@ -48,16 +48,30 @@ class Truck:
             
     def removePackage(self, pk, office):#Preet
         #drive to post office 
-        #remove package from truck (don't set delivery status to true)
+        self.location = office
+        
         #set picked up back to false 
+        self.packages[pk.id].collected = False
+            
+        #remove package from truck (don't set delivery status to true)
+        del self.packages[pk.id]
+       
+        
 
     def driveTo(self, loc1, loc2):#Preet 
         #set truck's location to location 2 
+        self.location = loc2
+      
         
         
 
     def getPackagesIds(self):#Preet 
         #intialize empty python list
+        Id_list=[]
         #for package on truck:
+        for package in self.packages:
+            
             #get ID 
+            ID = package.id
             #add ID to list 
+            Id_list.append(ID)
