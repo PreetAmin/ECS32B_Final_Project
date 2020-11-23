@@ -2,6 +2,7 @@ class Package:
     def __init__(self, id):
         self.id = id
         self.address = ""
+        self.office = ""
         self.ownerName = ""
         self.collected = False
         self.delivered = False
@@ -10,7 +11,7 @@ class Truck:
     def __init__(self, id, n):
         self.id = id
         self.size = n
-        self.location = ""
+        self.location = loc
         self.packages = {}
 
     def addPackage(self, pk):
