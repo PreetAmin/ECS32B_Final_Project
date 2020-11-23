@@ -3,10 +3,9 @@ class Package:
         self.id = id
         self.address = ""
         self.ownerName = ""
-        self.collected = False
         self.delivered = False
-
-
+        self.pickedUp = False
+        
 class Truck:
     def __init__(self, id, n):
         self.id = id
@@ -15,54 +14,47 @@ class Truck:
         self.packages = {}
 
     def addPackage(self, pk):
-        # Add package to packages dictionary
+        #Add package to packages dictionary
         self.packages[pk.id] = pk
+        
+        #Set package pickedUp to true 
+        pk.pickedUp = True 
+       
+        
+    def deliverPackage(self, pk): #Milap
+        #Find delivery location
+        loc2 = pk.address
 
-        # Set package pickedUp to true
-        pk.collected = True
+        #drive to required location
+        loc1 = self.location
+        self.driveto(loc1, loc2)
 
-    def deliverPackage(self, pk):  # Milap
+        #remove the package from truck
+        del pk
 
-    # Find delivery location
-    # drive to required location
-    # remove the package from truck
-    # set delivery status to true for package
+        #set delivery status to true for package
+        pk.delivered = True  
 
-    def deliverPackageByAddress(self, addr):  # Dave
-    # drive to address
-        self.driveTo(self.location,addr)
-    # find all the packages we need to deliver
-    # loop through all needed packages
-        for key in self.packages:
-            if self.packages[key].address == addr:
-                # set package status to delivered
-                self.packages[key].deliver = True
-                # remove package from truck
-                del self.packages[key]
+    def deliverPackageByAddress(self, addr):#Dave
+        #drive to address 
+        #find all the packages we need to deliver and their names to some DS 
+        #loop through all needed packages 
+            #remove package from truck
+            #set package status to delivered 
 
+            
+    def removePackage(self, pk, office):#Preet
+        #drive to post office 
+        #remove package from truck (don't set delivery status to true)
+        #set picked up back to false 
 
+    def driveTo(self, loc1, loc2):#Preet 
+        #set truck's location to location 2 
+        
+        
 
-
-
-
-    def removePackage(self, pk, office):  # Preet
-
-    # drive to post office
-    # remove package from truck (don't set delivery status to true)
-    # set picked up back to false
-
-    def driveTo(self, loc1, loc2):  # Preet
-
-    # set truck's location to location 2
-
-    def getPackagesIds(self):  # Preet
-# intialize empty python list
-# for package on truck:
-# get ID
-# add ID to list
-
-
-
-
-
-
+    def getPackagesIds(self):#Preet 
+        #intialize empty python list
+        #for package on truck:
+            #get ID 
+            #add ID to list 
