@@ -24,11 +24,8 @@ class Truck:
         
     def deliverPackage(self, pk): #Milap
         #Find delivery location
-        loc2 = pk.address
-
         #drive to required location
-        loc1 = self.location
-        self.driveto(loc1, loc2)
+        self.driveto(self.location, pk.address)
 
         #remove the package from truck
         del self.package[pk]
