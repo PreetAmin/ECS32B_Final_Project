@@ -33,17 +33,17 @@ class Truck:
         #set delivery status to true for package
         pk.delivered = True  
 
-        def deliverPackageByAddress(self, addr):  # Dave
-         # drive to address
-            self.driveTo(self.location,addr)
+    def deliverPackageByAddress(self, addr):  # Dave
+    # drive to address
+        self.driveTo(self.location,addr)
         # find all the packages we need to deliver
-         # loop through all needed packages
-            for key in self.packages:
-                if self.packages[key].address == addr:
-                    # set package status to delivered
-                    self.packages[key].delivered = True
+        # loop through all needed packages
+        for key in self.packages:
+            if self.packages[key].address == addr:
+                # set package status to delivered
+                self.packages[key].delivered = True
                 # remove package from truck
-                    del self.packages[key]
+                del self.packages[key]
 
             
     def removePackage(self, pk, office):#Preet
