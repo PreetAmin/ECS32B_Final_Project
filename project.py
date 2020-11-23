@@ -72,7 +72,7 @@ class Truck:
         for package in self.packages:
             
             #get ID 
-            ID = package.id
+            ID = self.packages[package].id
             #add ID to list 
             Id_list.append(ID)
         #return output list
