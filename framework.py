@@ -44,7 +44,7 @@ class Truck:
             for key in self.packages:
                 if self.packages[key].address == addr:
                     # set package status to delivered
-                    self.packages[key].deliver = True
+                    self.packages[key].delivered = True
                 # remove package from truck
                     del self.packages[key]
 
