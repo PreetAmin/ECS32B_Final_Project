@@ -75,3 +75,5 @@ class Truck:
             ID = package.id
             #add ID to list 
             Id_list.append(ID)
+        #return output list
+        return Id_list
