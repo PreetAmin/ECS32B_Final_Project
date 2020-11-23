@@ -8,13 +8,13 @@ class Package:
         self.delivered = False
         
 class Truck:
-    def __init__(self, id, n):
+    def __init__(self, id, n, loc):
         self.id = id
         self.size = n
         self.location = loc
         self.packages = {}
 
-    def addPackage(self, pk):
+    def collectPackage(self, pk):
         #Add package to packages dictionary
         self.packages[pk.id] = pk
         
@@ -28,7 +28,7 @@ class Truck:
         self.driveto(self.location, pk.address)
 
         #remove the package from truck
-        del self.package[pk]
+        del self.packages[pk]
 
         #set delivery status to true for package
         pk.delivered = True  
