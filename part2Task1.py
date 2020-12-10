@@ -1,12 +1,12 @@
 """
-BFS
+BFS #Milap
 """
 def bfs(map, office):
 
 
 
 """
-DFS
+DFS #Dave
 """
 def dfs(map, office):
 
@@ -14,6 +14,6 @@ def dfs(map, office):
 
 
 """
-Dijkstra's
+Dijkstra's #Preet 
 """
 def dijkstra(map, office):
