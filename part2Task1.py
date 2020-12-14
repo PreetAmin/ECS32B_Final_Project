@@ -1,8 +1,30 @@
+from collections import defaultdict
+from queue import Empty, Queue
 """
-BFS #Milap
+FS #Milap
 """
-#def bfs(map, office):
+def bfs(map, office):
+    dict1, res = defaultdict(list), {}
 
+    visited = set()
+    visited.add(office)
+    
+    q1 = Queue()
+    q1.put((office, [office]))
+
+    for i in map:
+        dict1[i[0]].append(i[1])
+        dict1[i[1]].append(i[0])
+        
+    while not q1.empty():
+        curr, c_path = q1.get()
+        res[curr] = c_path
+        
+        for i in sorted(dict1[curr]):
+            if i not in visited:
+                q1.put((i, c_path+[i]))
+                visited.add(i)
+    return res
 
 
 """
