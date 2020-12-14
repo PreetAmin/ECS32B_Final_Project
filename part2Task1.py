@@ -1,7 +1,7 @@
 """
 BFS #Milap
 """
-def bfs(map, office):
+#def bfs(map, office):
 
 
 
