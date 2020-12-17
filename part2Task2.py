@@ -1,6 +1,6 @@
 from collections import defaultdict
 from queue import Empty, Queue
-from part2task1 import bfs, dfs, dijkstra
+from part2Task1 import bfs, dfs, dijkstra
 from project import Truck
 from project import Package 
 
