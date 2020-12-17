@@ -1,6 +1,6 @@
-from part2Task1.py import bfs
-from part2Task1.py import dfs
-from part2Task1.py import dijkstra
+from part2Task1 import bfs
+from part2Task1 import dfs
+from part2Task1 import dijkstra
 
 from collections import defaultdict
 from queue import Empty, Queue
