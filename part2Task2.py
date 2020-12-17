@@ -27,13 +27,9 @@ def bfs(map, office):
                 q1.put((i, c_path + [i]))
                 visited.add(i)
     return res
-
-
 """
 DFS #Dave
 """
-
-
 def dfs(map, office):
     path = {}
     stack = [(office, [office])]
@@ -51,12 +47,9 @@ def dfs(map, office):
             stack.append((i, p + [i]))
         del adj_lst[v]
     return path
-
 """
 Dijkstra's #Preet 
 """
-
-
 def dijkstra(map, office):
     # make an empty dictionary for the answers
     paths = {}
@@ -239,7 +232,7 @@ def deliveryService(map, truck, packages):
     #store all the packages info to make a while loop
     pk_dic = {}
     for package in packages:
-        if packages.office in pk_dic:
+        if package.office in pk_dic:
             pk_dic[package.office] = pk_dic[package.office] + [package.id]
         else:
             pk_dic[package.office] = [package.id]
@@ -255,16 +248,27 @@ def deliveryService(map, truck, packages):
             new_space = len(truck.packages) - s_space
             # we will reduce diction
             if new_space > 0:
-                pk_dic[truck.lcation] = pk_dic[truck.location][new_space:]
+                pk_dic[truck.location] = pk_dic[truck.location][new_space:]
             if pk_dic[truck.location] == []:
-                del pk_dic[truck.lcation]
-        #check for path
-        path = dijkstra(map, truck.location)
-
-
-
-
-
-
+                del pk_dic[truck.location]
+        #check for path of eath packages and drive there and delivers
+        q = Queue()
+        for key in truck.packages:
+            q.put(key)
+        while q:
+            path = dijkstra(map, truck.location)
+            temp = q.get()
+            for i in path[temp][1:]:
+                truck.driveTo(truck.location, i)
+                stops.append(i)
+            truck.deliverPackage(temp)
+            deliveredTo[temp] = truck.location
+        #drive to new UPS stop in pk_dic
+        if truck.packages == {} and pk_dic != {}:
+            temp = list(pk_dic.keys)[0]
+            path = dijkstra(map, truck.location)
+            for i in path[temp][1:]:
+                truck.driveTo(truck.location, i)
+                stops.append(i)
 
     return (deliveredTo, stops)
