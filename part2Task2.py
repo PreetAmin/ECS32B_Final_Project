@@ -1,5 +1,6 @@
 from collections import defaultdict
 from queue import Empty, Queue
+from csv import *
 """
 FS #Milap
 """
@@ -237,13 +238,14 @@ def deliveryService(map, truck, packages):
         else:
             pk_dic[package.office] = [package.id]
     # keep running until all packages are gone
-    while pk_dic or truck.packages:
+    while pk_dic:
         # check to see if we are at an office
-        if "UPS" in truck.location:
+        if truck.location in pk_dic:
             #counter to remove from pk_dic
             s_space = len(truck.packages)
             for i in packages:
-                truck.collectPackage(i)
+                if i.delivered != True:
+                    truck.collectPackage(i)
             #if counter is greater than 0
             new_space = len(truck.packages) - s_space
             # we will reduce diction
